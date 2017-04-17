@@ -1,0 +1,1982 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/proj4js/proj4js#readme"
+
+    >proj4 (v2.4.3)</a>
+</h1>
+<h4>Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4">module proj4</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.proj4">
+            function <span class="apidocSignatureSpan"></span>proj4
+            <span class="apidocSignatureSpan">(fromProj, toProj, coord)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point">
+            function <span class="apidocSignatureSpan">proj4.</span>Point
+            <span class="apidocSignatureSpan">(x, y, z)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.fromMGRS">
+            function <span class="apidocSignatureSpan">proj4.</span>Point.fromMGRS
+            <span class="apidocSignatureSpan">(mgrsStr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.prototype.toMGRS">
+            function <span class="apidocSignatureSpan">proj4.</span>Point.prototype.toMGRS
+            <span class="apidocSignatureSpan">(accuracy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Proj">
+            function <span class="apidocSignatureSpan">proj4.</span>Proj
+            <span class="apidocSignatureSpan">(srsCode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.forward">
+            function <span class="apidocSignatureSpan">proj4.</span>WGS84.forward
+            <span class="apidocSignatureSpan">(pt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.init">
+            function <span class="apidocSignatureSpan">proj4.</span>WGS84.init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.defs">
+            function <span class="apidocSignatureSpan">proj4.</span>defs
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.forward">
+            function <span class="apidocSignatureSpan">proj4.</span>mgrs.forward
+            <span class="apidocSignatureSpan">(ll, accuracy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.inverse">
+            function <span class="apidocSignatureSpan">proj4.</span>mgrs.inverse
+            <span class="apidocSignatureSpan">(mgrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.toPoint">
+            function <span class="apidocSignatureSpan">proj4.</span>mgrs.toPoint
+            <span class="apidocSignatureSpan">(mgrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.toPoint">
+            function <span class="apidocSignatureSpan">proj4.</span>toPoint
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.toString">
+            function <span class="apidocSignatureSpan">proj4.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.transform">
+            function <span class="apidocSignatureSpan">proj4.</span>transform
+            <span class="apidocSignatureSpan">(source, dest, point)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.</span>Point.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.</span>Proj.projections</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.</span>WGS84</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.</span>mgrs</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.</span>defaultDatum</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.</span>version</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.Point">module proj4.Point</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.Point">
+            function <span class="apidocSignatureSpan">proj4.</span>Point
+            <span class="apidocSignatureSpan">(x, y, z)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.fromMGRS">
+            function <span class="apidocSignatureSpan">proj4.Point.</span>fromMGRS
+            <span class="apidocSignatureSpan">(mgrsStr)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.Point.fromMGRS">module proj4.Point.fromMGRS</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.fromMGRS.fromMGRS">
+            function <span class="apidocSignatureSpan">proj4.Point.</span>fromMGRS
+            <span class="apidocSignatureSpan">(mgrsStr)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.Point.prototype">module proj4.Point.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.prototype.toMGRS">
+            function <span class="apidocSignatureSpan">proj4.Point.prototype.</span>toMGRS
+            <span class="apidocSignatureSpan">(accuracy)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.Point.prototype.toMGRS">module proj4.Point.prototype.toMGRS</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Point.prototype.toMGRS.toMGRS">
+            function <span class="apidocSignatureSpan">proj4.Point.prototype.</span>toMGRS
+            <span class="apidocSignatureSpan">(accuracy)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.Proj">module proj4.Proj</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Proj.Proj">
+            function <span class="apidocSignatureSpan">proj4.</span>Proj
+            <span class="apidocSignatureSpan">(srsCode, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.Proj.</span>projections</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.Proj.projections">module proj4.Proj.projections</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Proj.projections.add">
+            function <span class="apidocSignatureSpan">proj4.Proj.projections.</span>add
+            <span class="apidocSignatureSpan">(proj, i)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Proj.projections.get">
+            function <span class="apidocSignatureSpan">proj4.Proj.projections.</span>get
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.Proj.projections.start">
+            function <span class="apidocSignatureSpan">proj4.Proj.projections.</span>start
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.WGS84">module proj4.WGS84</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.forward">
+            function <span class="apidocSignatureSpan">proj4.WGS84.</span>forward
+            <span class="apidocSignatureSpan">(pt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.init">
+            function <span class="apidocSignatureSpan">proj4.WGS84.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.inverse">
+            function <span class="apidocSignatureSpan">proj4.WGS84.</span>inverse
+            <span class="apidocSignatureSpan">(pt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>a</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>b</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>e</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>ep2</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>es</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>k0</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">proj4.WGS84.</span>rf</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.WGS84.</span>datum</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.WGS84.</span>datum_params</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.WGS84.</span>names</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>axis</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>datumCode</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>datumName</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>ellps</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>projName</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>title</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">proj4.WGS84.</span>units</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.WGS84.forward">module proj4.WGS84.forward</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.forward.forward">
+            function <span class="apidocSignatureSpan">proj4.WGS84.</span>forward
+            <span class="apidocSignatureSpan">(pt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.WGS84.init">module proj4.WGS84.init</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.WGS84.init.init">
+            function <span class="apidocSignatureSpan">proj4.WGS84.</span>init
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.defs">module proj4.defs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.defs.defs">
+            function <span class="apidocSignatureSpan">proj4.</span>defs
+            <span class="apidocSignatureSpan">(name)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.defs.</span>GOOGLE</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">proj4.defs.</span>WGS84</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.mgrs">module proj4.mgrs</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.forward">
+            function <span class="apidocSignatureSpan">proj4.mgrs.</span>forward
+            <span class="apidocSignatureSpan">(ll, accuracy)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.inverse">
+            function <span class="apidocSignatureSpan">proj4.mgrs.</span>inverse
+            <span class="apidocSignatureSpan">(mgrs)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.toPoint">
+            function <span class="apidocSignatureSpan">proj4.mgrs.</span>toPoint
+            <span class="apidocSignatureSpan">(mgrs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.mgrs.forward">module proj4.mgrs.forward</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.forward.forward">
+            function <span class="apidocSignatureSpan">proj4.mgrs.</span>forward
+            <span class="apidocSignatureSpan">(ll, accuracy)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.mgrs.inverse">module proj4.mgrs.inverse</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.inverse.inverse">
+            function <span class="apidocSignatureSpan">proj4.mgrs.</span>inverse
+            <span class="apidocSignatureSpan">(mgrs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.mgrs.toPoint">module proj4.mgrs.toPoint</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.mgrs.toPoint.toPoint">
+            function <span class="apidocSignatureSpan">proj4.mgrs.</span>toPoint
+            <span class="apidocSignatureSpan">(mgrs)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.toPoint">module proj4.toPoint</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.toPoint.toPoint">
+            function <span class="apidocSignatureSpan">proj4.</span>toPoint
+            <span class="apidocSignatureSpan">(array)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.toString">module proj4.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.toString.toString">
+            function <span class="apidocSignatureSpan">proj4.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.proj4.transform">module proj4.transform</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.proj4.transform.transform">
+            function <span class="apidocSignatureSpan">proj4.</span>transform
+            <span class="apidocSignatureSpan">(source, dest, point)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4" id="apidoc.module.proj4">module proj4</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.proj4" id="apidoc.element.proj4.proj4">
+        function <span class="apidocSignatureSpan"></span>proj4
+        <span class="apidocSignatureSpan">(fromProj, toProj, coord)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function proj4$1(fromProj, toProj, coord) {
+	  fromProj = checkProj(fromProj);
+	  var single = false;
+	  var obj;
+	  if (typeof toProj === &#x27;undefined&#x27;) {
+	    toProj = fromProj;
+	    fromProj = wgs84;
+	    single = true;
+	  }
+	  else if (typeof toProj.x !== &#x27;undefined&#x27; || Array.isArray(toProj)) {
+	    coord = toProj;
+	    toProj = fromProj;
+	    fromProj = wgs84;
+	    single = true;
+	  }
+	  toProj = checkProj(toProj);
+	  if (coord) {
+	    return transformer(fromProj, toProj, coord);
+	  }
+	  else {
+	    obj = {
+	      forward: function(coords) {
+	        return transformer(fromProj, toProj, coords);
+	      },
+	      inverse: function(coords) {
+	        return transformer(toProj, fromProj, coords);
+	      }
+	    };
+	    if (single) {
+	      obj.oProj = toProj;
+	    }
+	    return obj;
+	  }
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point" id="apidoc.element.proj4.Point">
+        function <span class="apidocSignatureSpan">proj4.</span>Point
+        <span class="apidocSignatureSpan">(x, y, z)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Point(x, y, z) {
+	  if (!(this instanceof Point)) {
+	    return new Point(x, y, z);
+	  }
+	  if (Array.isArray(x)) {
+	    this.x = x[0];
+	    this.y = x[1];
+	    this.z = x[2] || 0.0;
+	  } else if(typeof x === &#x27;object&#x27;) {
+	    this.x = x.x;
+	    this.y = x.y;
+	    this.z = x.z || 0.0;
+	  } else if (typeof x === &#x27;string&#x27; &#x26;&#x26; typeof y === &#x27;undefined&#x27;) {
+	    var coords = x.split(&#x27;,&#x27;);
+	    this.x = parseFloat(coords[0], 10);
+	    this.y = parseFloat(coords[1], 10);
+	    this.z = parseFloat(coords[2], 10) || 0.0;
+	  } else {
+	    this.x = x;
+	    this.y = y;
+	    this.z = z || 0.0;
+	  }
+	  console.warn(&#x27;proj4.Point will be removed in version 3, use proj4.toPoint&#x27;);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.fromMGRS" id="apidoc.element.proj4.Point.fromMGRS">
+        function <span class="apidocSignatureSpan">proj4.</span>Point.fromMGRS
+        <span class="apidocSignatureSpan">(mgrsStr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Point.fromMGRS = function (mgrsStr) {
+	  return new Point(toPoint$1(mgrsStr));
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.prototype.toMGRS" id="apidoc.element.proj4.Point.prototype.toMGRS">
+        function <span class="apidocSignatureSpan">proj4.</span>Point.prototype.toMGRS
+        <span class="apidocSignatureSpan">(accuracy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">Point.prototype.toMGRS = function (accuracy) {
+	  return forward$1([this.x, this.y], accuracy);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Proj" id="apidoc.element.proj4.Proj">
+        function <span class="apidocSignatureSpan">proj4.</span>Proj
+        <span class="apidocSignatureSpan">(srsCode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Projection$1(srsCode, callback) {
+	  if (!(this instanceof Projection$1)) {
+	    return new Projection$1(srsCode);
+	  }
+	  callback = callback || function(error){
+	    if(error){
+	      throw error;
+	    }
+	  };
+	  var json = parse(srsCode);
+	  if(typeof json !== &#x27;object&#x27;){
+	    callback(srsCode);
+	    return;
+	  }
+	  var ourProj = Projection$1.projections.get(json.projName);
+	  if(!ourProj){
+	    callback(srsCode);
+	    return;
+	  }
+	  if (json.datumCode &#x26;&#x26; json.datumCode !== &#x27;none&#x27;) {
+	    var datumDef = match(exports$3, json.datumCode);
+	    if (datumDef) {
+	      json.datum_params = datumDef.towgs84 ? datumDef.towgs84.split(&#x27;,&#x27;) : null;
+	      json.ellps = datumDef.ellipse;
+	      json.datumName = datumDef.datumName ? datumDef.datumName : json.datumCode;
+	    }
+	  }
+	  json.k0 = json.k0 || 1.0;
+	  json.axis = json.axis || &#x27;enu&#x27;;
+	  json.ellps = json.ellps || &#x27;wgs84&#x27;;
+	  var sphere_ = sphere(json.a, json.b, json.rf, json.ellps, json.sphere);
+	  var ecc = eccentricity(sphere_.a, sphere_.b, sphere_.rf, json.R_A);
+	  var datumObj = json.datum || datum(json.datumCode, json.datum_params, sphere_.a, sphere_.b, ecc.es, ecc.ep2);
+
+	  extend(this, json); // transfer everything over from the projection because we don&#x27;t know what we&#x27;ll need
+	  extend(this, ourProj); // transfer all the methods from the projection
+
+	  // copy the 4 things over we calulated in deriveConstants.sphere
+	  this.a = sphere_.a;
+	  this.b = sphere_.b;
+	  this.rf = sphere_.rf;
+	  this.sphere = sphere_.sphere;
+
+	  // copy the 3 things we calculated in deriveConstants.eccentricity
+	  this.es = ecc.es;
+	  this.e = ecc.e;
+	  this.ep2 = ecc.ep2;
+
+	  // add in the datum object
+	  this.datum = datumObj;
+
+	  // init the projection
+	  this.init();
+
+	  // legecy callback from back in the day when it went to spatialreference.org
+	  callback(null, this);
+
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.forward" id="apidoc.element.proj4.WGS84.forward">
+        function <span class="apidocSignatureSpan">proj4.</span>WGS84.forward
+        <span class="apidocSignatureSpan">(pt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function identity(pt) {
+	  return pt;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.init" id="apidoc.element.proj4.WGS84.init">
+        function <span class="apidocSignatureSpan">proj4.</span>WGS84.init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init$1() {
+	  //no-op for longlat
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.defs" id="apidoc.element.proj4.defs">
+        function <span class="apidocSignatureSpan">proj4.</span>defs
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function defs(name) {
+	<span class="apidocCodeCommentSpan">  /*global console*/
+</span>	  var that = this;
+	  if (arguments.length === 2) {
+	    var def = arguments[1];
+	    if (typeof def === &#x27;string&#x27;) {
+	      if (def.charAt(0) === &#x27;+&#x27;) {
+	        defs[name] = parseProj(arguments[1]);
+	      }
+	      else {
+	        defs[name] = wkt(arguments[1]);
+	      }
+	    } else {
+	      defs[name] = def;
+	    }
+	  }
+	  else if (arguments.length === 1) {
+	    if (Array.isArray(name)) {
+	      return name.map(function(v) {
+	        if (Array.isArray(v)) {
+	          defs.apply(that, v);
+	        }
+	        else {
+	          defs(v);
+	        }
+	      });
+	    }
+	    else if (typeof name === &#x27;string&#x27;) {
+	      if (name in defs) {
+	        return defs[name];
+	      }
+	    }
+	    else if (&#x27;EPSG&#x27; in name) {
+	      defs[&#x27;EPSG:&#x27; + name.EPSG] = name;
+	    }
+	    else if (&#x27;ESRI&#x27; in name) {
+	      defs[&#x27;ESRI:&#x27; + name.ESRI] = name;
+	    }
+	    else if (&#x27;IAU2000&#x27; in name) {
+	      defs[&#x27;IAU2000:&#x27; + name.IAU2000] = name;
+	    }
+	    else {
+	      console.log(name);
+	    }
+	    return;
+	  }
+
+
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Named Projections
+
+If you prefer to define a projection as a string and reference it that way, you may use the proj4.defs method which can be called
+ 2 ways, with a name and projection:
+
+```js
+proj4.<span class="apidocCodeKeywordSpan">defs</span>(&#x27;WGS84&#x27;, &#x22;+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84
+ +datum=WGS84 +units=degrees&#x22;);
+```
+
+or with an array
+
+```js
+proj4.defs([
+[
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.forward" id="apidoc.element.proj4.mgrs.forward">
+        function <span class="apidocSignatureSpan">proj4.</span>mgrs.forward
+        <span class="apidocSignatureSpan">(ll, accuracy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function forward$1(ll, accuracy) {
+	  accuracy = accuracy || 5; // default accuracy 1m
+	  return encode(LLtoUTM({
+	    lat: ll[1],
+	    lon: ll[0]
+	  }), accuracy);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.inverse" id="apidoc.element.proj4.mgrs.inverse">
+        function <span class="apidocSignatureSpan">proj4.</span>mgrs.inverse
+        <span class="apidocSignatureSpan">(mgrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inverse$1(mgrs) {
+	  var bbox = UTMtoLL(decode(mgrs.toUpperCase()));
+	  if (bbox.lat &#x26;&#x26; bbox.lon) {
+	    return [bbox.lon, bbox.lat, bbox.lon, bbox.lat];
+	  }
+	  return [bbox.left, bbox.bottom, bbox.right, bbox.top];
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.toPoint" id="apidoc.element.proj4.mgrs.toPoint">
+        function <span class="apidocSignatureSpan">proj4.</span>mgrs.toPoint
+        <span class="apidocSignatureSpan">(mgrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toPoint$1(mgrs) {
+	  var bbox = UTMtoLL(decode(mgrs.toUpperCase()));
+	  if (bbox.lat &#x26;&#x26; bbox.lon) {
+	    return [bbox.lon, bbox.lat];
+	  }
+	  return [(bbox.left + bbox.right) / 2, (bbox.top + bbox.bottom) / 2];
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.toPoint" id="apidoc.element.proj4.toPoint">
+        function <span class="apidocSignatureSpan">proj4.</span>toPoint
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toPoint = function (array){
+	  var out = {
+	    x: array[0],
+	    y: array[1]
+	  };
+	  if (array.length&#x3e;2) {
+	    out.z = array[2];
+	  }
+	  if (array.length&#x3e;3) {
+	    out.m = array[3];
+	  }
+	  return out;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.toString" id="apidoc.element.proj4.toString">
+        function <span class="apidocSignatureSpan">proj4.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.transform" id="apidoc.element.proj4.transform">
+        function <span class="apidocSignatureSpan">proj4.</span>transform
+        <span class="apidocSignatureSpan">(source, dest, point)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(source, dest, point) {
+	  var wgs84;
+	  if (Array.isArray(point)) {
+	    point = toPoint(point);
+	  }
+
+	  // Workaround for datum shifts towgs84, if either source or destination projection is not wgs84
+	  if (source.datum &#x26;&#x26; dest.datum &#x26;&#x26; checkNotWGS(source, dest)) {
+	    wgs84 = new Projection$1(&#x27;WGS84&#x27;);
+	    point = transform(source, wgs84, point);
+	    source = wgs84;
+	  }
+	  // DGR, 2010/11/12
+	  if (source.axis !== &#x27;enu&#x27;) {
+	    point = adjust_axis(source, false, point);
+	  }
+	  // Transform source points to long/lat, if they aren&#x27;t already.
+	  if (source.projName === &#x27;longlat&#x27;) {
+	    point = {
+	      x: point.x * D2R,
+	      y: point.y * D2R
+	    };
+	  }
+	  else {
+	    if (source.to_meter) {
+	      point = {
+	        x: point.x * source.to_meter,
+	        y: point.y * source.to_meter
+	      };
+	    }
+	    point = source.inverse(point); // Convert Cartesian to longlat
+	  }
+	  // Adjust for the prime meridian if necessary
+	  if (source.from_greenwich) {
+	    point.x += source.from_greenwich;
+	  }
+
+	  // Convert datums if needed, and if possible.
+	  point = datum_transform(source.datum, dest.datum, point);
+
+	  // Adjust for the prime meridian if necessary
+	  if (dest.from_greenwich) {
+	    point = {
+	      x: point.x - dest.from_greenwich,
+	      y: point.y
+	    };
+	  }
+
+	  if (dest.projName === &#x27;longlat&#x27;) {
+	    // convert radians to decimal degrees
+	    point = {
+	      x: point.x * R2D,
+	      y: point.y * R2D
+	    };
+	  } else { // else project
+	    point = dest.forward(point);
+	    if (dest.to_meter) {
+	      point = {
+	        x: point.x / dest.to_meter,
+	        y: point.y / dest.to_meter
+	      };
+	    }
+	  }
+
+	  // DGR, 2010/11/12
+	  if (dest.axis !== &#x27;enu&#x27;) {
+	    return adjust_axis(dest, true, point);
+	  }
+
+	  return point;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.Point" id="apidoc.module.proj4.Point">module proj4.Point</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.Point" id="apidoc.element.proj4.Point.Point">
+        function <span class="apidocSignatureSpan">proj4.</span>Point
+        <span class="apidocSignatureSpan">(x, y, z)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Point(x, y, z) {
+	  if (!(this instanceof Point)) {
+	    return new Point(x, y, z);
+	  }
+	  if (Array.isArray(x)) {
+	    this.x = x[0];
+	    this.y = x[1];
+	    this.z = x[2] || 0.0;
+	  } else if(typeof x === &#x27;object&#x27;) {
+	    this.x = x.x;
+	    this.y = x.y;
+	    this.z = x.z || 0.0;
+	  } else if (typeof x === &#x27;string&#x27; &#x26;&#x26; typeof y === &#x27;undefined&#x27;) {
+	    var coords = x.split(&#x27;,&#x27;);
+	    this.x = parseFloat(coords[0], 10);
+	    this.y = parseFloat(coords[1], 10);
+	    this.z = parseFloat(coords[2], 10) || 0.0;
+	  } else {
+	    this.x = x;
+	    this.y = y;
+	    this.z = z || 0.0;
+	  }
+	  console.warn(&#x27;proj4.Point will be removed in version 3, use proj4.toPoint&#x27;);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.fromMGRS" id="apidoc.element.proj4.Point.fromMGRS">
+        function <span class="apidocSignatureSpan">proj4.Point.</span>fromMGRS
+        <span class="apidocSignatureSpan">(mgrsStr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromMGRS = function (mgrsStr) {
+	  return new Point(toPoint$1(mgrsStr));
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.Point.fromMGRS" id="apidoc.module.proj4.Point.fromMGRS">module proj4.Point.fromMGRS</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.fromMGRS.fromMGRS" id="apidoc.element.proj4.Point.fromMGRS.fromMGRS">
+        function <span class="apidocSignatureSpan">proj4.Point.</span>fromMGRS
+        <span class="apidocSignatureSpan">(mgrsStr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fromMGRS = function (mgrsStr) {
+	  return new Point(toPoint$1(mgrsStr));
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.Point.prototype" id="apidoc.module.proj4.Point.prototype">module proj4.Point.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.prototype.toMGRS" id="apidoc.element.proj4.Point.prototype.toMGRS">
+        function <span class="apidocSignatureSpan">proj4.Point.prototype.</span>toMGRS
+        <span class="apidocSignatureSpan">(accuracy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toMGRS = function (accuracy) {
+	  return forward$1([this.x, this.y], accuracy);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.Point.prototype.toMGRS" id="apidoc.module.proj4.Point.prototype.toMGRS">module proj4.Point.prototype.toMGRS</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Point.prototype.toMGRS.toMGRS" id="apidoc.element.proj4.Point.prototype.toMGRS.toMGRS">
+        function <span class="apidocSignatureSpan">proj4.Point.prototype.</span>toMGRS
+        <span class="apidocSignatureSpan">(accuracy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toMGRS = function (accuracy) {
+	  return forward$1([this.x, this.y], accuracy);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.Proj" id="apidoc.module.proj4.Proj">module proj4.Proj</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Proj.Proj" id="apidoc.element.proj4.Proj.Proj">
+        function <span class="apidocSignatureSpan">proj4.</span>Proj
+        <span class="apidocSignatureSpan">(srsCode, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Projection$1(srsCode, callback) {
+	  if (!(this instanceof Projection$1)) {
+	    return new Projection$1(srsCode);
+	  }
+	  callback = callback || function(error){
+	    if(error){
+	      throw error;
+	    }
+	  };
+	  var json = parse(srsCode);
+	  if(typeof json !== &#x27;object&#x27;){
+	    callback(srsCode);
+	    return;
+	  }
+	  var ourProj = Projection$1.projections.get(json.projName);
+	  if(!ourProj){
+	    callback(srsCode);
+	    return;
+	  }
+	  if (json.datumCode &#x26;&#x26; json.datumCode !== &#x27;none&#x27;) {
+	    var datumDef = match(exports$3, json.datumCode);
+	    if (datumDef) {
+	      json.datum_params = datumDef.towgs84 ? datumDef.towgs84.split(&#x27;,&#x27;) : null;
+	      json.ellps = datumDef.ellipse;
+	      json.datumName = datumDef.datumName ? datumDef.datumName : json.datumCode;
+	    }
+	  }
+	  json.k0 = json.k0 || 1.0;
+	  json.axis = json.axis || &#x27;enu&#x27;;
+	  json.ellps = json.ellps || &#x27;wgs84&#x27;;
+	  var sphere_ = sphere(json.a, json.b, json.rf, json.ellps, json.sphere);
+	  var ecc = eccentricity(sphere_.a, sphere_.b, sphere_.rf, json.R_A);
+	  var datumObj = json.datum || datum(json.datumCode, json.datum_params, sphere_.a, sphere_.b, ecc.es, ecc.ep2);
+
+	  extend(this, json); // transfer everything over from the projection because we don&#x27;t know what we&#x27;ll need
+	  extend(this, ourProj); // transfer all the methods from the projection
+
+	  // copy the 4 things over we calulated in deriveConstants.sphere
+	  this.a = sphere_.a;
+	  this.b = sphere_.b;
+	  this.rf = sphere_.rf;
+	  this.sphere = sphere_.sphere;
+
+	  // copy the 3 things we calculated in deriveConstants.eccentricity
+	  this.es = ecc.es;
+	  this.e = ecc.e;
+	  this.ep2 = ecc.ep2;
+
+	  // add in the datum object
+	  this.datum = datumObj;
+
+	  // init the projection
+	  this.init();
+
+	  // legecy callback from back in the day when it went to spatialreference.org
+	  callback(null, this);
+
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.Proj.projections" id="apidoc.module.proj4.Proj.projections">module proj4.Proj.projections</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Proj.projections.add" id="apidoc.element.proj4.Proj.projections.add">
+        function <span class="apidocSignatureSpan">proj4.Proj.projections.</span>add
+        <span class="apidocSignatureSpan">(proj, i)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function add(proj, i) {
+	  var len = projStore.length;
+	  if (!proj.names) {
+	    console.log(i);
+	    return true;
+	  }
+	  projStore[len] = proj;
+	  proj.names.forEach(function(n) {
+	    names$$1[n.toLowerCase()] = len;
+	  });
+	  return this;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Proj.projections.get" id="apidoc.element.proj4.Proj.projections.get">
+        function <span class="apidocSignatureSpan">proj4.Proj.projections.</span>get
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function get(name) {
+	  if (!name) {
+	    return false;
+	  }
+	  var n = name.toLowerCase();
+	  if (typeof names$$1[n] !== &#x27;undefined&#x27; &#x26;&#x26; projStore[names$$1[n]]) {
+	    return projStore[names$$1[n]];
+	  }
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.Proj.projections.start" id="apidoc.element.proj4.Proj.projections.start">
+        function <span class="apidocSignatureSpan">proj4.Proj.projections.</span>start
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function start() {
+	  projs.forEach(add);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.WGS84" id="apidoc.module.proj4.WGS84">module proj4.WGS84</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.forward" id="apidoc.element.proj4.WGS84.forward">
+        function <span class="apidocSignatureSpan">proj4.WGS84.</span>forward
+        <span class="apidocSignatureSpan">(pt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function identity(pt) {
+	  return pt;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+proj4(firstProjection,[-71,41]);
+// [242075.00535055372, 750123.32090043]
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).<span class="apidocCodeKeywordSpan">forward</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).inverse([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.init" id="apidoc.element.proj4.WGS84.init">
+        function <span class="apidocSignatureSpan">proj4.WGS84.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init$1() {
+	  //no-op for longlat
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.inverse" id="apidoc.element.proj4.WGS84.inverse">
+        function <span class="apidocSignatureSpan">proj4.WGS84.</span>inverse
+        <span class="apidocSignatureSpan">(pt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function identity(pt) {
+	  return pt;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).forward([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).<span class="apidocCodeKeywordSpan">inverse</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+
+```javascript
+proj4(firstProjection).forward([-71,41]);
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.WGS84.forward" id="apidoc.module.proj4.WGS84.forward">module proj4.WGS84.forward</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.forward.forward" id="apidoc.element.proj4.WGS84.forward.forward">
+        function <span class="apidocSignatureSpan">proj4.WGS84.</span>forward
+        <span class="apidocSignatureSpan">(pt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function identity(pt) {
+	  return pt;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+proj4(firstProjection,[-71,41]);
+// [242075.00535055372, 750123.32090043]
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).<span class="apidocCodeKeywordSpan">forward</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).inverse([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.WGS84.init" id="apidoc.module.proj4.WGS84.init">module proj4.WGS84.init</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.WGS84.init.init" id="apidoc.element.proj4.WGS84.init.init">
+        function <span class="apidocSignatureSpan">proj4.WGS84.</span>init
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function init$1() {
+	  //no-op for longlat
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.defs" id="apidoc.module.proj4.defs">module proj4.defs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.defs.defs" id="apidoc.element.proj4.defs.defs">
+        function <span class="apidocSignatureSpan">proj4.</span>defs
+        <span class="apidocSignatureSpan">(name)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function defs(name) {
+	<span class="apidocCodeCommentSpan">  /*global console*/
+</span>	  var that = this;
+	  if (arguments.length === 2) {
+	    var def = arguments[1];
+	    if (typeof def === &#x27;string&#x27;) {
+	      if (def.charAt(0) === &#x27;+&#x27;) {
+	        defs[name] = parseProj(arguments[1]);
+	      }
+	      else {
+	        defs[name] = wkt(arguments[1]);
+	      }
+	    } else {
+	      defs[name] = def;
+	    }
+	  }
+	  else if (arguments.length === 1) {
+	    if (Array.isArray(name)) {
+	      return name.map(function(v) {
+	        if (Array.isArray(v)) {
+	          defs.apply(that, v);
+	        }
+	        else {
+	          defs(v);
+	        }
+	      });
+	    }
+	    else if (typeof name === &#x27;string&#x27;) {
+	      if (name in defs) {
+	        return defs[name];
+	      }
+	    }
+	    else if (&#x27;EPSG&#x27; in name) {
+	      defs[&#x27;EPSG:&#x27; + name.EPSG] = name;
+	    }
+	    else if (&#x27;ESRI&#x27; in name) {
+	      defs[&#x27;ESRI:&#x27; + name.ESRI] = name;
+	    }
+	    else if (&#x27;IAU2000&#x27; in name) {
+	      defs[&#x27;IAU2000:&#x27; + name.IAU2000] = name;
+	    }
+	    else {
+	      console.log(name);
+	    }
+	    return;
+	  }
+
+
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+## Named Projections
+
+If you prefer to define a projection as a string and reference it that way, you may use the proj4.defs method which can be called
+ 2 ways, with a name and projection:
+
+```js
+proj4.<span class="apidocCodeKeywordSpan">defs</span>(&#x27;WGS84&#x27;, &#x22;+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84
+ +datum=WGS84 +units=degrees&#x22;);
+```
+
+or with an array
+
+```js
+proj4.defs([
+[
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.mgrs" id="apidoc.module.proj4.mgrs">module proj4.mgrs</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.forward" id="apidoc.element.proj4.mgrs.forward">
+        function <span class="apidocSignatureSpan">proj4.mgrs.</span>forward
+        <span class="apidocSignatureSpan">(ll, accuracy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function forward$1(ll, accuracy) {
+	  accuracy = accuracy || 5; // default accuracy 1m
+	  return encode(LLtoUTM({
+	    lat: ll[1],
+	    lon: ll[0]
+	  }), accuracy);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+proj4(firstProjection,[-71,41]);
+// [242075.00535055372, 750123.32090043]
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).<span class="apidocCodeKeywordSpan">forward</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).inverse([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.inverse" id="apidoc.element.proj4.mgrs.inverse">
+        function <span class="apidocSignatureSpan">proj4.mgrs.</span>inverse
+        <span class="apidocSignatureSpan">(mgrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inverse$1(mgrs) {
+	  var bbox = UTMtoLL(decode(mgrs.toUpperCase()));
+	  if (bbox.lat &#x26;&#x26; bbox.lon) {
+	    return [bbox.lon, bbox.lat, bbox.lon, bbox.lat];
+	  }
+	  return [bbox.left, bbox.bottom, bbox.right, bbox.top];
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).forward([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).<span class="apidocCodeKeywordSpan">inverse</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+
+```javascript
+proj4(firstProjection).forward([-71,41]);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.toPoint" id="apidoc.element.proj4.mgrs.toPoint">
+        function <span class="apidocSignatureSpan">proj4.mgrs.</span>toPoint
+        <span class="apidocSignatureSpan">(mgrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toPoint$1(mgrs) {
+	  var bbox = UTMtoLL(decode(mgrs.toUpperCase()));
+	  if (bbox.lat &#x26;&#x26; bbox.lon) {
+	    return [bbox.lon, bbox.lat];
+	  }
+	  return [(bbox.left + bbox.right) / 2, (bbox.top + bbox.bottom) / 2];
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.mgrs.forward" id="apidoc.module.proj4.mgrs.forward">module proj4.mgrs.forward</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.forward.forward" id="apidoc.element.proj4.mgrs.forward.forward">
+        function <span class="apidocSignatureSpan">proj4.mgrs.</span>forward
+        <span class="apidocSignatureSpan">(ll, accuracy)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function forward$1(ll, accuracy) {
+	  accuracy = accuracy || 5; // default accuracy 1m
+	  return encode(LLtoUTM({
+	    lat: ll[1],
+	    lon: ll[0]
+	  }), accuracy);
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+proj4(firstProjection,[-71,41]);
+// [242075.00535055372, 750123.32090043]
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).<span class="apidocCodeKeywordSpan">forward</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).inverse([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.mgrs.inverse" id="apidoc.module.proj4.mgrs.inverse">module proj4.mgrs.inverse</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.inverse.inverse" id="apidoc.element.proj4.mgrs.inverse.inverse">
+        function <span class="apidocSignatureSpan">proj4.mgrs.</span>inverse
+        <span class="apidocSignatureSpan">(mgrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function inverse$1(mgrs) {
+	  var bbox = UTMtoLL(decode(mgrs.toUpperCase()));
+	  if (bbox.lat &#x26;&#x26; bbox.lon) {
+	    return [bbox.lon, bbox.lat, bbox.lon, bbox.lat];
+	  }
+	  return [bbox.left, bbox.bottom, bbox.right, bbox.top];
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+```
+
+If no coordinates are given an object with two methods is returned, its methods are `forward` which projects from the first projection
+ to the second and `inverse` which projects from the second to the first.
+
+```javascript
+proj4(firstProjection,secondProjection).forward([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+proj4(secondProjection,firstProjection).<span class="apidocCodeKeywordSpan">inverse</span>([2,5]);
+// [-2690666.2977344505, 3662659.885459918]
+```
+
+and as above if only one projection is given, it&#x27;s assumed to be coming from wgs84
+
+```javascript
+proj4(firstProjection).forward([-71,41]);
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.mgrs.toPoint" id="apidoc.module.proj4.mgrs.toPoint">module proj4.mgrs.toPoint</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.mgrs.toPoint.toPoint" id="apidoc.element.proj4.mgrs.toPoint.toPoint">
+        function <span class="apidocSignatureSpan">proj4.mgrs.</span>toPoint
+        <span class="apidocSignatureSpan">(mgrs)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toPoint$1(mgrs) {
+	  var bbox = UTMtoLL(decode(mgrs.toUpperCase()));
+	  if (bbox.lat &#x26;&#x26; bbox.lon) {
+	    return [bbox.lon, bbox.lat];
+	  }
+	  return [(bbox.left + bbox.right) / 2, (bbox.top + bbox.bottom) / 2];
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.toPoint" id="apidoc.module.proj4.toPoint">module proj4.toPoint</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.toPoint.toPoint" id="apidoc.element.proj4.toPoint.toPoint">
+        function <span class="apidocSignatureSpan">proj4.</span>toPoint
+        <span class="apidocSignatureSpan">(array)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toPoint = function (array){
+	  var out = {
+	    x: array[0],
+	    y: array[1]
+	  };
+	  if (array.length&#x3e;2) {
+	    out.z = array[2];
+	  }
+	  if (array.length&#x3e;3) {
+	    out.m = array[3];
+	  }
+	  return out;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.toString" id="apidoc.module.proj4.toString">module proj4.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.toString.toString" id="apidoc.element.proj4.toString.toString">
+        function <span class="apidocSignatureSpan">proj4.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.proj4.transform" id="apidoc.module.proj4.transform">module proj4.transform</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.proj4.transform.transform" id="apidoc.element.proj4.transform.transform">
+        function <span class="apidocSignatureSpan">proj4.</span>transform
+        <span class="apidocSignatureSpan">(source, dest, point)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function transform(source, dest, point) {
+	  var wgs84;
+	  if (Array.isArray(point)) {
+	    point = toPoint(point);
+	  }
+
+	  // Workaround for datum shifts towgs84, if either source or destination projection is not wgs84
+	  if (source.datum &#x26;&#x26; dest.datum &#x26;&#x26; checkNotWGS(source, dest)) {
+	    wgs84 = new Projection$1(&#x27;WGS84&#x27;);
+	    point = transform(source, wgs84, point);
+	    source = wgs84;
+	  }
+	  // DGR, 2010/11/12
+	  if (source.axis !== &#x27;enu&#x27;) {
+	    point = adjust_axis(source, false, point);
+	  }
+	  // Transform source points to long/lat, if they aren&#x27;t already.
+	  if (source.projName === &#x27;longlat&#x27;) {
+	    point = {
+	      x: point.x * D2R,
+	      y: point.y * D2R
+	    };
+	  }
+	  else {
+	    if (source.to_meter) {
+	      point = {
+	        x: point.x * source.to_meter,
+	        y: point.y * source.to_meter
+	      };
+	    }
+	    point = source.inverse(point); // Convert Cartesian to longlat
+	  }
+	  // Adjust for the prime meridian if necessary
+	  if (source.from_greenwich) {
+	    point.x += source.from_greenwich;
+	  }
+
+	  // Convert datums if needed, and if possible.
+	  point = datum_transform(source.datum, dest.datum, point);
+
+	  // Adjust for the prime meridian if necessary
+	  if (dest.from_greenwich) {
+	    point = {
+	      x: point.x - dest.from_greenwich,
+	      y: point.y
+	    };
+	  }
+
+	  if (dest.projName === &#x27;longlat&#x27;) {
+	    // convert radians to decimal degrees
+	    point = {
+	      x: point.x * R2D,
+	      y: point.y * R2D
+	    };
+	  } else { // else project
+	    point = dest.forward(point);
+	    if (dest.to_meter) {
+	      point = {
+	        x: point.x / dest.to_meter,
+	        y: point.y / dest.to_meter
+	      };
+	    }
+	  }
+
+	  // DGR, 2010/11/12
+	  if (dest.axis !== &#x27;enu&#x27;) {
+	    return adjust_axis(dest, true, point);
+	  }
+
+	  return point;
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
