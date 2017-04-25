@@ -1,4 +1,7 @@
-# api documentation for  [proj4 (v2.4.3)](https://github.com/proj4js/proj4js#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-proj4.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-proj4) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-proj4.svg)](https://travis-ci.org/npmdoc/node-npmdoc-proj4)
+# npmdoc-proj4
+
+#### basic api documentation for  [proj4 (v2.4.3)](https://github.com/proj4js/proj4js#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-proj4.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-proj4) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-proj4.svg)](https://travis-ci.org/npmdoc/node-npmdoc-proj4)
+
 #### Proj4js is a JavaScript library to transform point coordinates from one coordinate system to another, including datum transformations.
 
 [![NPM](https://nodei.co/npm/proj4.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/proj4)
@@ -100,7 +103,8 @@
         "build:tmerc": "grunt build:tmerc",
         "test": "npm run build && istanbul test _mocha test/test.js"
     },
-    "version": "2.4.3"
+    "version": "2.4.3",
+    "bin": {}
 }
 ```
 
